@@ -12,13 +12,10 @@ textmineR: for preprocessing textual data
 LDAvis: for visualizing topic models
 Validating Topic Models
 
-The following metrics can be used to assess the quality of a topic model:
+The following metrics are used to assess the quality of a topic model:
 
 Perplexity: measures the model's ability to predict new documents
 Coherence: measures the degree of semantic similarity between the top words in a topic
 Silhouette score: measures the degree of similarity between topics based on their word distributions
 The project at Washington University in St. Louis uses these metrics to validate the quality of topic models and ensure that the identified topics are relevant, coherent, and interpretable. The project also uses visualization tools, such as LDAvis, to explore the topics and their relationships.
 
-Contributing
-
-If you are interested in contributing to the project or have any questions, please contact the Department of Psychological & Brain Sciences at Washington University in St. Louis. They welcome collaborations with researchers and institutions interested in topic model validation in R
