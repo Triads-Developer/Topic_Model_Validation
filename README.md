@@ -1,21 +1,37 @@
-## Topic Model Validation in R 
+## validateIt - A Package for Topic Model Validation
 
-Topic modeling is a powerful technique for extracting latent themes from large textual datasets. However, it is crucial to evaluate and validate the model's performance and quality to ensure that the identified topics are relevant, coherent, and interpretable. The Department of Psychological & Brain Sciences at Washington University in St. Louis is conducting  research on topic model validation in R to assess the quality of topic models.
+The validateIt package refines a crowd-sourcing method via MTurk to validate topic quality and creates new procedures to validate conceptual labels provided by researchers. The package provides researchers with the ability to extract validation sets as needed to validate their own topic models.
 
-### Project Techniques 
+### Installation
 
-To perform topic model validation in R, you will need to install and load the following packages:
+To install validateIt, run the following command:
 
-topicmodels: for fitting topic models
-ldatuning: for tuning topic models
-textmineR: for preprocessing textual data
-LDAvis: for visualizing topic models
-Validating Topic Models
+install.packages("validateIt")
 
-The following metrics are used to assess the quality of a topic model:
 
-Perplexity: measures the model's ability to predict new documents
-Coherence: measures the degree of semantic similarity between the top words in a topic
-Silhouette score: measures the degree of similarity between topics based on their word distributions
-The project at Washington University in St. Louis uses these metrics to validate the quality of topic models and ensure that the identified topics are relevant, coherent, and interpretable. The project also uses visualization tools, such as LDAvis, to explore the topics and their relationships.
+The validateIt package includes all functions necessary to create worker qualifications, format all task types related to topic validation, label selection, and label validation. The package also serves as an interface with MTurk and can send tasks, retrieve results, and offer an analysis for the collected data's quality.
+
+The following code can be used to create a validation task and send it to MTurk:
+
+scss
+library(validateIt)
+
+# Set up MTurk credentials
+set_mturk_credentials(access_key = "ACCESS_KEY", secret_key = "SECRET_KEY")
+
+# Create a validation task
+validation_task <- create_validation_task(topics = my_topics, validation_set = my_validation_set)
+
+# Send the validation task to MTurk
+send_validation_task(validation_task)
+Validation Metrics
+
+The validateIt package provides the following metrics to assess the quality of a topic model:
+
+Agreement rate: measures the degree of agreement between workers on a given label
+Confidence rate: measures the degree of confidence workers have in their assigned labels
+Relevance rate: measures the degree of relevance between a label and a given topic
+These metrics can be used to ensure that the identified topics are relevant, coherent, and interpretable.
+
+
 
