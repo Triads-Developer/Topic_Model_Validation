@@ -1,37 +1,25 @@
-## validateIt - A Package for Topic Model Validation
+## validateIt: An R Package for Topic and Label Validation
 
-The validateIt package refines a crowd-sourcing method via MTurk to validate topic quality and creates new procedures to validate conceptual labels provided by researchers. The package provides researchers with the ability to extract validation sets as needed to validate their own topic models.
+Authors: [Luwei Ying](http://luweiying.org), [Jacob Montgomery](https://pages.wustl.edu/montgomery) and [Brandon Stewart](http://brandonstewart.org)
 
-### Installation
+Please email all comments/questions to luwei.ying [AT] wustl.edu
 
-To install validateIt, run the following command:
+### Installation Instructions
+The package is currently not available on CRAN. You can install the most recent development version using the devtools package. First you have to install devtools using the following code.  Note that you only have to do this once
 
-install.packages("validateIt")
+```  
+if(!require(devtools)) install.packages("devtools")
+```  
 
+Then you'll need to install the dependency, "pyMTurkR", using the function `install_github`. If you need to interact with Mturk, be sure to follow the detailed instructions here: github.com/cloudyr/pyMTurkR
+```
+devtools::install_github("cloudyr/pyMTurkR")
+```
 
-The validateIt package includes all functions necessary to create worker qualifications, format all task types related to topic validation, label selection, and label validation. The package also serves as an interface with MTurk and can send tasks, retrieve results, and offer an analysis for the collected data's quality.
+Now you can install our package
 
-The following code can be used to create a validation task and send it to MTurk:
+```
+devtools::install_github("Luwei-Ying/validateIt", dependencies=TRUE)
+```
 
-scss
-library(validateIt)
-
-# Set up MTurk credentials
-set_mturk_credentials(access_key = "ACCESS_KEY", secret_key = "SECRET_KEY")
-
-# Create a validation task
-validation_task <- create_validation_task(topics = my_topics, validation_set = my_validation_set)
-
-# Send the validation task to MTurk
-send_validation_task(validation_task)
-Validation Metrics
-
-The validateIt package provides the following metrics to assess the quality of a topic model:
-
-Agreement rate: measures the degree of agreement between workers on a given label
-Confidence rate: measures the degree of confidence workers have in their assigned labels
-Relevance rate: measures the degree of relevance between a label and a given topic
-These metrics can be used to ensure that the identified topics are relevant, coherent, and interpretable.
-
-
-
+Note that this will install all the packages suggested and required to run our package.  It may take a few minutes the first time, but this only needs to be done on the first use.  In the future you can update to the most recent development version using the same code. 
